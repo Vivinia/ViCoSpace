@@ -23,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //设置标题
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("已相恋：0天0小时0分0秒");
+        getSupportActionBar().setElevation(0);
     }
 
     public void selectInsert(View view){
@@ -74,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.actionMessage) {
+            return true;
+        }else if(id == R.id.actionPrivateLetter) {
             return true;
         }
         return super.onOptionsItemSelected(item);
