@@ -3,20 +3,23 @@ package com.example.vico.vicospace;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.DialogPreference;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     private Intent intent;
+
+    private TextView tvLoveDays,tvLoveHoursMinutesSeconds;
 
     private String[] alertdialogItemList={"每日说","纪念日","照片","文章"};
 
@@ -28,10 +31,42 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //设置标题
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("已相恋：0天0小时0分0秒");
-        getSupportActionBar().setElevation(0);
+        //初始化控件
+        info();
+        //计算相恋时间
+        culLoveDate();
+
+//        //设置标题
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("已相恋：0000天00小时00分00秒");
+//        getSupportActionBar().setElevation(0);
+    }
+
+    //初始化控件
+    private void info() {
+        tvLoveDays= (TextView) findViewById(R.id.tvLoveDays);
+        tvLoveHoursMinutesSeconds= (TextView) findViewById(R.id.tvLoveHoursMinutesSeconds);
+    }
+
+    //计算相恋时间
+    private void culLoveDate() {
+        SimpleDateFormat dfs=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        long between = 0;
+        try {
+            Date begin = dfs.parse("2015-04-11 11:24:49.145");
+            Date end = dfs.parse("2017-08-11 10:22:21.214");
+            between = (end.getTime() - begin.getTime());// 得到两者的毫秒数
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        long day = between / (24 * 60 * 60 * 1000);
+        long hour = (between / (60 * 60 * 1000) - day * 24);
+        long min = ((between / (60 * 1000)) - day * 24 * 60 - hour * 60);
+        long sec = (between / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
+        String loveDays="已相恋："+day;
+        String loveHoursMinutesSeconds=hour+"天"+min+"分"+sec+"秒";
+        tvLoveDays.setText(loveDays);
+        tvLoveHoursMinutesSeconds.setText(loveHoursMinutesSeconds);
     }
 
     public void selectInsert(View view){

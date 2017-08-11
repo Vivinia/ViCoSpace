@@ -20,8 +20,33 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvLoveDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="已相恋：0000天"
+                    android:textStyle="bold"
+                    android:textSize="26sp"/>
+                <TextView
+                    android:id="@+id/tvLoveHoursMinutesSeconds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="00小时00分00秒"
+                    android:textSize="23sp"/>
+            </LinearLayout>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
