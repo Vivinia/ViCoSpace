@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.vico.vicospace.InsertMemoryDateActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvInsertMemortDate"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:onClick="insertMemoryDateClick"
+        android:text="2015：01：01"/>
+    <EditText
+        android:id="@+id/etInsertMemoryContent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/btSubmitMemoryDate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="纪念日"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="173dp" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginTop="50dp"
+        android:text="提交"/>
+</LinearLayout>

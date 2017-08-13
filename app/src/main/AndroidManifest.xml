@@ -22,7 +22,9 @@
         <activity android:name=".InsertDailySaidActivity" />
         <activity android:name=".InsertMemoryDateActivity" />
         <activity android:name=".InsertPictureActivity" />
-        <activity android:name=".InsertArticleActivity"></activity>
+        <activity android:name=".InsertArticleActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".PrivateLetterActivity"></activity>
     </application>
 
 </manifest>
