@@ -10,6 +10,6 @@
     <item
         android:id="@+id/actionPrivateLetter"
         android:orderInCategory="100"
-        android:title="@string/menuMessage"
+        android:title="@string/menuPrivateLetter"
         app:showAsAction="ifRoom" />
 </menu>
